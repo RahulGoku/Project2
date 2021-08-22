@@ -1,83 +1,17 @@
-<div class="jumbotron text-center" style="margin: bottom 10px;padding-bottom: 10px;background-color: #00bcd4;" >
-  <img src="../assets/image/logo.png" alt="alternatetext">
-  <p>Keep Helping and Spread Smile!</p>
-</div>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <a class="navbar-brand" href="#"><strong>HeLpEr</strong></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-  <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="/homepage">Home</a>
-        </li>
-          <li class="nav-item">
-              <a class="nav-link" routerLink="/service"><b>Services</b></a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link" routerLink="/contact"><b>Contact Us</b></a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link" href="/about"><b>About</b></a>
-          </li>
-      </ul>   
-  
-     <!--  <button class="btn btn-success btn-lg float-right" style="margin-left:1000px;"   type="submit">
-             Submit
-        </button>-->
-  </div>
-  <div style="float:right; margin-right: 10px;">
-    <button class="btn btn-primary btn-lg float-right"  type="submit">
-      Login
- </button>
-  </div>
+<!-- <div class="jumbotron text-center splash-ctnr">
+  <h1 class="fade-in">HELPER</h1>
+  <p class="fade-in">Keep Helping and Spread Smile!</p>
+  <img src="../assets/image/logo.png" id="icon"  class="fade-in">
+</div> -->
 
-</nav>
+<app-header></app-header>
+<app-navbar></app-navbar>
 
 <router-outlet></router-outlet>
+  
 
 
-<div class="jumbotron text-center" style="margin-bottom:0;background-color:#00bcd4;margin-top: 10px ;padding-top: 20px;">
-  <footer class="footer">
-       <div class="container">
-           <div class="row">
-               <div class="col-4 offset-1 col-sm-2">
-                   <h5>Links</h5>
-                   <ul class="list-unstyled">
-                       <li><a href="#">Home</a></li>
-                       <li><a href="./about.html">About</a></li>
-                       <li><a href="./contact.html">Contact</a></li>
-                   </ul>
-               </div>
-               <div class="col-7 offset-4 col-sm-5" >
-                   <h5>Our Address</h5>
-                   <address>
-                 Helper<br>
-                 Chennai,TamilNadu<br>
-                 India<br>
-                 <i class="fa fa-phone fa-lg"></i>: +91 1234567890<br>
-                 <i class="fa fa-fax fa-lg"></i>: +91 1234567890<br>
-                 <i class="fa fa-envelope fa-lg"></i>: <a href="mailto:Ask4help@helpnet.com">Ask4help@helpnet.com</a>
-              </address>
-               </div>
-               <div class="col-12 col-sm-4 align-self-center">
-                   <div class="text-center">
-                       <a class="btn btn-social-icon btn-google" href="http://google.com/+"><i class="fa fa-google-plus fa-lg"></i></a>
-                       <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook fa-lg"></i></a>
-                       <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin fa-lg"></i></a>
-                       <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter fa-lg"></i></a>
-                       <a class="btn btn-social-icon btn-google" href="http://youtube.com/"><i class="fa fa-youtube-play fa-lg"></i></a>
-                       <a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o fa-lg"></i></a>
-                   </div>
-               </div>
-          </div>
-          <div class="row justify-content-center">
-               <div class="col-auto">
-                   <p>© Copyright 2020 HeLpEr</p>
-               </div>
-          </div>
-       </div>
-   </footer>
-</div>
+<app-footer></app-footer>
+
+
 
