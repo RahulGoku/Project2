@@ -16,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { HelperService } from 'src/data/helper.service';
+import { HelperRegistrationComponent } from './helper-registration/helper-registration.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HelperService } from 'src/data/helper.service';
     HeaderComponent,
     AboutComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HelperRegistrationComponent
   ],
   imports: [
     BrowserModule,

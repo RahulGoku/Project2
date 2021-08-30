@@ -2,7 +2,7 @@
     
     <div class="card bg-light">
     <article class="card-body mx-auto" style="max-width: 400px;">
-        <h4 class="card-title mt-3 text-center">Create Account</h4>
+        <h4 class="card-title mt-3 text-center">Register as A us</h4>
         <p class="text-center">Get started with your free account</p>
         <p>
             <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
@@ -42,9 +42,14 @@
             </div>
             <select class="form-control" id="jobtype"  formControlName="jobtype">
                 <option selected=""> Select job type</option>
-                <option>Designer</option>
-                <option>Manager</option>
-                <option>Accaunting</option>
+                <option value="Electrician">Electrician</option>
+          <option value="Plumber">Plumber</option>
+          <option value="Carpenter">Carpenter</option>
+          <option value="Mechanic">Mechanic</option>
+          <option value="Tutor">Tutor</option>
+          <option value="Builder">Builder</option>
+          <option value="Mason">Mason</option>
+          <option value="Other">Others...</option>
             </select>
         </div> <!-- form-group end.// -->
         <div class="form-group input-group" style="margin-bottom: 20px;">
@@ -62,12 +67,10 @@
         <div class="form-group" style="margin-bottom: 20px;">
             <button type="submit" class="btn btn-primary btn-block" style="margin-left: 100px;"> Create Account  </button>
         </div> <!-- form-group// -->      
-        <p class="text-center">Have an account? <a routerLink="/login">Log In</a> </p>                                                                 
+                                               
     </form>
     </article>
     </div> <!-- card.// -->
     
     </div> 
     <!--container end.//-->
-    
-    

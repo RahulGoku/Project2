@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { HelperService } from 'src/data/helper.service';
 import { Customer } from 'src/model/customer';
 
@@ -19,7 +20,7 @@ export class RegisterComponent implements OnInit {
   'password':new FormControl(),
 });
 customer=new Customer();
-  constructor(private hs:HelperService) { }
+  constructor(private hs:HelperService,private _router:Router) { }
 
   ngOnInit(): void {
   // this.myRegisterForm=new FormGroup({
@@ -43,9 +44,11 @@ onSubmit(){
       // to the service  - HelperService
   this.hs.createCustomer(this.customer)
       .subscribe(
-        response=>{console.log(response)},
+        response=>{console.log(response)
+        },
         err=>{console.log(err)});
         this.myRegisterForm.reset();
         alert("Customer registered Successfully")
+        this._router.navigate(['/login'])
 }
 }

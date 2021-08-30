@@ -9,13 +9,14 @@ import { ServiceComponent } from './service/service.component';
 
 
 const routes: Routes = [
-  { path: '',   redirectTo: '/homepage', pathMatch: 'full' }, // redirect to `first-component`
+  { path: '',   redirectTo: '/login', pathMatch: 'full' }, // redirect to `first-component`
   { path: 'contact', component: ContactComponent},
   { path: 'homepage', component: HomepageComponent},
   { path: 'about', component: AboutComponent},
   {path: 'login',component: LoginComponent},
   {path: 'register',component:RegisterComponent},
-  { path: 'service', component: ServiceComponent}
+  { path: 'service', component: ServiceComponent},
+  
   
 ];
 
