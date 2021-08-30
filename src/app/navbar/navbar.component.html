@@ -24,13 +24,19 @@
                Submit
           </button>-->
     </div>
+    <div class="dropdown">
+      <span style="background-color: azure;">Mouse over me</span>
+      <div class="dropdown-content">
+        <p>Hello World!</p>
+      </div>
+    </div>
     <div style="float:right; margin-right: 10px;">
       <!-- <button class="btn btn-primary btn-lg float-right"  type="submit">
         Login
    </button> -->
  <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Register
+<button type="button" class="btn btn-primary" (click)="logout()" data-toggle="modal" data-target="#exampleModal">
+  Logout
 </button>
  
     </div>
@@ -38,7 +44,7 @@
   </nav>
   
 
-<!-- Modal -->
+<!-- Modal
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -57,20 +63,20 @@
                   <p class="text-center">Get started with your free account</p>
                  
                   <!-- <form> -->
-                  <form [formGroup]='helperRegisterForm' (ngSubmit)="onSubmit()">
+                  <!-- <form [formGroup]='helperRegisterForm' (ngSubmit)="onSubmit()">
                   <div class="form-group input-group" style="margin-bottom: 20px;">
                       <div class="input-group-prepend">
                           <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                        </div>
                       <input name="helperService" class="form-control" placeholder="helperService" type="text"  formControlName="helperService">
                   </div> <!-- form-group// -->
-                  <div class="form-group input-group" style="margin-bottom: 20px;">
+                  <!-- <div class="form-group input-group" style="margin-bottom: 20px;">
                       <div class="input-group-prepend">
                           <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                        </div>
                       <input name="location" class="form-control" placeholder="State" type="text"  formControlName="location">
-                  </div> <!-- form-group// -->
-                  <div class="form-group input-group" style="margin-bottom: 20px;">
+                  </div> form-group// -->
+                  <!-- <div class="form-group input-group" style="margin-bottom: 20px;">
                       <div class="input-group-prepend">
                           <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
                       </div>
@@ -83,42 +89,42 @@
                       <input name="contact" class="form-control" placeholder="Phone number" type="text"  formControlName="contact">
                   </div> <!-- form-group// -->
                   
-                  <div class="form-group input-group" style="margin-bottom: 20px;">
+                  <!-- <div class="form-group input-group" style="margin-bottom: 20px;">
                       <div class="input-group-prepend">
                           <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                       </div>
                       <input class="form-control" placeholder="Aadhar no" type="password" id="aadhar"  formControlName="aadhar">
-                  </div> <!-- form-group// -->
-                  <div class="form-group input-group" style="margin-bottom: 20px;">
+                  </div> form-group// --> 
+                  <!-- <div class="form-group input-group" style="margin-bottom: 20px;"> -->
                     <!-- <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                     </div> -->
-                    <label for="Description">Description:</label>
-                    <textarea id="Description" name="Write about yourself" rows="4" cols="50" formControlName="describe">Describe Yourself</textarea>
+                    <!-- <label for="Description">Description:</label>
+                    <textarea id="Description" name="Write about yourself" rows="4" cols="50" formControlName="describe">Describe Yourself</textarea> -->
                     <!-- <input class="form-control" placeholder="Description" type="text" id="aadhar"  > -->
-                </div> <!-- form-group// -->
+                <!-- </div> form-group// -->
                   <!-- <div class="form-group input-group" style="margin-bottom: 20px;">
                       <div class="input-group-prepend">
                           <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                       </div>
                       <input class="form-control" placeholder="Repeat password" type="password">
                   </div> form-group//                                       -->
-                  <div class="form-group" style="margin-bottom: 20px;">
+                  <!-- <div class="form-group" style="margin-bottom: 20px;">
                       <button type="submit" class="btn btn-primary btn-block" style="margin-left: 100px;"> Create Account  </button>
-                  </div> <!-- form-group// -->      
-                                                         
-              </form>
+                  </div> form-group//      
+                                                          -->
+              <!-- </form>
               </article>
               </div> <!-- card.// -->
               
-              </div> 
+              <!-- </div>  -->
               <!--container end.//-->
-      </div>
+      <!-- </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
-</div>
+</div> -->
   
