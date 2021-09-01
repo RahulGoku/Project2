@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HelperService } from 'src/data/helper.service';
+import { Customer } from 'src/model/customer';
 import { Helper } from 'src/model/helper';
 
 @Component({
@@ -10,7 +11,8 @@ import { Helper } from 'src/model/helper';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  // useremail:any;
+  useremail:any;
+  customers:Customer[]=[];
   // helperRegisterForm=new FormGroup({
   //   'helperService':new FormControl(),
   //   'location':new FormControl(),
@@ -28,12 +30,21 @@ export class NavbarComponent implements OnInit {
       // // const userEmailID=this.hs.email;
       // // console.log("User Email ID : "+this.hs);
       // })
+      this.useremail=localStorage.getItem('email');
+     
+        console.log("Email Id : "+this.useremail)
+        this.hs.getUserData(this.useremail).subscribe((response:any)=>{this.customers=response;console.log(this.customers,response)},
+          err=>{console.log(err)})
       
     }
   
    logout(){
      alert("Thank You for Using Our Services.")
-     this._router.navigate(["/login"]);
+    //
+    this.hs.logout();
+     window.location.href="/login"
+     
+    //  this._router.navigate(["/login"]);
    }
   
 
@@ -59,3 +70,7 @@ export class NavbarComponent implements OnInit {
           
   // }
 }
+function getUserData() {
+  throw new Error('Function not implemented.');
+}
+

@@ -17,6 +17,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { HelperService } from 'src/data/helper.service';
 import { HelperRegistrationComponent } from './helper-registration/helper-registration.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { GuardUserGuard } from './guard-user.guard';
+import { LoginguardGuard } from './loginguard.guard';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import { HelperRegistrationComponent } from './helper-registration/helper-regist
     AboutComponent,
     LoginComponent,
     RegisterComponent,
-    HelperRegistrationComponent
+    HelperRegistrationComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,7 @@ import { HelperRegistrationComponent } from './helper-registration/helper-regist
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [HelperService],
+  providers: [HelperService,GuardUserGuard,LoginguardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

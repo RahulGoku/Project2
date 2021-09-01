@@ -16,7 +16,8 @@
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
              </div>
-            <input name="username" class="form-control" placeholder="Full name" type="text"  formControlName="username">
+            <input name="username" class="form-control" placeholder="Full name" type="text"  formControlName="username" [ngClass]="{'is-invalid':
+            myRegisterForm.get('email').touched && myRegisterForm.get('email').invalid}">
         </div> <!-- form-group// -->
         <div class="form-group input-group" style="margin-bottom: 20px;">
             <div class="input-group-prepend">

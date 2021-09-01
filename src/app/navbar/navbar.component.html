@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="margin-top: -30px;">
     <a class="navbar-brand" href="#"><strong>HeLpEr</strong></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
@@ -24,22 +24,40 @@
                Submit
           </button>-->
     </div>
-    <div class="dropdown">
-      <span style="background-color: azure;">Mouse over me</span>
+    <!-- <div class="dropdown"style="margin: right 30px;">
+      <h4 style="color: antiquewhite;">Welcome {{customers[0].userName}}</h4>
       <div class="dropdown-content">
-        <p>Hello World!</p>
+        <ul style="list-style-type:none;">
+          <li><a routerLink="/dashboard"> Setting</a></li>
+          <li><button type="button" class="btn btn-primary" (click)="logout()" data-toggle="modal" data-target="#exampleModal">
+            Logout
+          </button></li>
+        </ul>
       </div>
-    </div>
-    <div style="float:right; margin-right: 10px;">
+    </div> -->
+    
+    <!-- Dropleft with Icon-->
+<!--Dropdown Menu Top Right-->
+<div class="pmd-dropdown dropup" style="margin-right: 40px;">
+  <button class="btn pmd-ripple-effect btn-primary dropdown-toggle" type="button" id="dropdownMenuTopRight" data-toggle="dropdown" aria-expanded="true">{{customers[0].userName}}</button>
+  <div class="dropdown-menu dropdown-menu-right">
+      <a class="dropdown-item" routerLink="/dashboard">Setting</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" (click)="logout()" >Logout</a>
+  </div>
+</div>
+                                      
+
+    <!-- <div style="float:right; margin-right: 10px;"> -->
       <!-- <button class="btn btn-primary btn-lg float-right"  type="submit">
         Login
    </button> -->
  <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" (click)="logout()" data-toggle="modal" data-target="#exampleModal">
+<!-- <button type="button" class="btn btn-primary" (click)="logout()" data-toggle="modal" data-target="#exampleModal">
   Logout
-</button>
+</button> -->
  
-    </div>
+    <!-- </div> -->
   
   </nav>
   

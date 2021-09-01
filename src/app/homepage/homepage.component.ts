@@ -23,11 +23,12 @@ export class HomepageComponent implements OnInit {
     constructor(private hs:HelperService,private route: ActivatedRoute,private _router:Router) { }
    
     ngOnInit(): void {
-      this.route.queryParams.subscribe(params => {
-        this.useremail= params['param'];
-      // const userEmailID=this.hs.email;
-      // console.log("User Email ID : "+this.hs);
-      })
+      // this.route.queryParams.subscribe(params => {
+      //   this.useremail= params['param'];
+      // // const userEmailID=this.hs.email;
+      // // console.log("User Email ID : "+this.hs);
+      // })
+      this.useremail=localStorage.getItem('email')
       
     }
   
