@@ -1,5 +1,5 @@
 export class Customer{
- [x: string]: any;
+ userId:number=0;
  userName:String='';
  email:String='';
  countryCode:String='';

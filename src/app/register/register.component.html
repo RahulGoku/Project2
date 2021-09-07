@@ -16,8 +16,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
              </div>
-            <input name="username" class="form-control" placeholder="Full name" type="text"  formControlName="username" [ngClass]="{'is-invalid':
-            myRegisterForm.get('email').touched && myRegisterForm.get('email').invalid}">
+            <input name="username" class="form-control" placeholder="Full name" type="text"  formControlName="username" >
         </div> <!-- form-group// -->
         <div class="form-group input-group" style="margin-bottom: 20px;">
             <div class="input-group-prepend">
@@ -66,7 +65,11 @@
             <input class="form-control" placeholder="Repeat password" type="password">
         </div> form-group//                                       -->
         <div class="form-group" style="margin-bottom: 20px;">
-            <button type="submit" class="btn btn-primary btn-block" style="margin-left: 100px;"> Create Account  </button>
+            <button type="submit" class="btn btn-primary btn-block" > Create Account  </button>
+        </div> <!-- form-group// -->     
+        <div class="form-group" style="margin-bottom:40px;margin-left:20px">
+    
+            If already Registered<a routerLink="/login">..Please Click here </a>
         </div> <!-- form-group// -->      
                                                
     </form>

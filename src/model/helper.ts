@@ -1,5 +1,5 @@
 export class Helper{
-   
+    helperId:number=0;
     helperService:String="";
     location:String="";
     description:String="";

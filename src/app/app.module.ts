@@ -20,6 +20,8 @@ import { HelperRegistrationComponent } from './helper-registration/helper-regist
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GuardUserGuard } from './guard-user.guard';
 import { LoginguardGuard } from './loginguard.guard';
+import { NgValidatorsModule } from '@ng-validators/ng-validators';
+
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { LoginguardGuard } from './loginguard.guard';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgValidatorsModule,
   ],
   providers: [HelperService,GuardUserGuard,LoginguardGuard],
   bootstrap: [AppComponent]

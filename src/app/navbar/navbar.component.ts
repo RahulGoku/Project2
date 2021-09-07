@@ -12,6 +12,7 @@ import { Helper } from 'src/model/helper';
 })
 export class NavbarComponent implements OnInit {
   useremail:any;
+  hide:boolean=false;
   customers:Customer[]=[];
   // helperRegisterForm=new FormGroup({
   //   'helperService':new FormControl(),
@@ -33,7 +34,7 @@ export class NavbarComponent implements OnInit {
       this.useremail=localStorage.getItem('email');
      
         console.log("Email Id : "+this.useremail)
-        this.hs.getUserData(this.useremail).subscribe((response:any)=>{this.customers=response;console.log(this.customers,response)},
+        this.hs.getUserData(this.useremail).subscribe((response:any)=>{this.customers=response;console.log(this.customers,response,this.customers[0].email),this.hide=true},
           err=>{console.log(err)})
       
     }

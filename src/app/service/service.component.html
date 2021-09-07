@@ -2,14 +2,14 @@
 <main>
   
   <!-- <form style="margin-left: 100px;"> -->
-    <form [formGroup]='helperServiceLocation' (ngSubmit)="onsub">  -->
+    <form [formGroup]='helperServiceLocation' (ngSubmit)="onsub"> 
     <div class="form-group input-group" style="margin-bottom: 20px;">
       <div class="input-group-prepend">
           <!-- <span class="input-group-text"> <i class="fa fa-envelope"></i> </span> -->
        </div>
       <!-- <input name="location" class="form-control" placeholder="State" type="text"  formControlName="location"> -->
-        <h3>State&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
-        <select class="custom-select" style="max-width: 120px;" id="Location"  formControlName="location" [(ngModel)]="state" >
+        <!-- <h3>State&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3> -->
+        <select class="custom-select" style="max-width: 700px;" id="Location"  formControlName="location" [(ngModel)]="state" style="margin-left: 150px;" >
         <option selected="Andhra Pradesh">Andhra Pradesh</option>
         <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
         <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -48,10 +48,11 @@
         <option value="West Bengal">West Bengal</option>
         </select>
     </div> <!-- form-group// -->
-    <button type="submit" (click)="onsub()">
-      Search
-      {{state}}
+    <div class="text-center">
+    <button type="submit" (click)="onsub()" >
+      Set Location
     </button>
+  </div>
     </form>
     <br>
     <br>
@@ -82,7 +83,7 @@
         <i class="fa fa-database"></i>
         <p><Strong>Electrician</Strong></p>
              <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" (click)="getElectrician()" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+        <button type="button" class="btn btn-primary" (click)="getElectricianByLocation()" data-bs-toggle="modal" data-bs-target="#exampleModal2">
             Electrician
             </button>
     </div>
@@ -107,14 +108,15 @@
         <i class="fa fa-support"></i>
         <p><Strong>Other</Strong></p>
              <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" (click)="getOtherByLocation()" data-bs-toggle="modal" data-bs-target="#exampleModal5">
+        <button type="button" class="btn btn-primary" (click)=" getOtherByLocation()" data-bs-toggle="modal" data-bs-target="#exampleModal5">
             Other
           </button>
     </div>
     </div>
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModalmech" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  
+  <div class="modal fade" id="exampleModalmech" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -123,27 +125,34 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-        
+          <div *ngIf="!msg1" class="alert alert-primary alert-dismissible" role="alert" id="liveAlert">
+             {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          <div *ngIf="msg1" class="alert alert-primary alert-dismissible" role="alert" id="liveAlert">
           <table class="table table-striped table-dark">
             <thead>
               <tr>
-                
+               
                 <th scope="col">Location</th>
                 <th scope="col">Contact</th>
+                <th scope="col">Service</th>
                 <th scope="col">About Helper</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let helper of helpers">
-               
+              
                 <td>{{helper.location}}</td>
                 <td>{{helper.contact}}</td>
+                <td>{{helper.helperService}}</td>
                 <td>{{helper.description}}</td>
               </tr>
+             
             </tbody>
           </table>
         </div>
-        
+        </div>
      
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -151,6 +160,8 @@
       </div>
     </div>
   </div>
+
+ 
   <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -160,31 +171,42 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <table class="table table-striped table-dark">
-            <thead>
-              <tr>
-                
-                <th scope="col">Location</th>
-                <th scope="col">Contact</th>
-                <th scope="col">About Helper</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let helper of helpers">
-               
-                <td>{{helper.location}}</td>
-                <td>{{helper.contact}}</td>
-                <td>{{helper.description}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+          <div *ngIf="!msg2" class="alert alert-primary alert-dismissible" role="alert" id="liveAlert">
+            {{message}}
+           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+         </div>
+         <div *ngIf="msg2" class="alert alert-primary alert-dismissible" role="alert" id="liveAlert">
+         <table class="table table-striped table-dark">
+          <thead>
+            <tr>
+             
+              <th scope="col">Location</th>
+              <th scope="col">Contact</th>
+              <th scope="col">Service</th>
+              <th scope="col">About Helper</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let helper of helpers">
+            
+              <td>{{helper.location}}</td>
+              <td>{{helper.contact}}</td>
+              <td>{{helper.helperService}}</td>
+              <td>{{helper.description}}</td>
+            </tr>
+           
+          </tbody>
+         </table>
+       </div>
+       </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
   </div>
+
+  
   <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -194,31 +216,43 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <table class="table table-striped table-dark">
-            <thead>
-              <tr>
+          <div *ngIf="!msg5" class="alert alert-primary alert-dismissible" role="alert" id="liveAlert">
+            {{message}}
+           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+         </div>
+         <div *ngIf="msg5" class="alert alert-primary alert-dismissible" role="alert" id="liveAlert">
+         <table class="table table-striped table-dark">
+           <thead>
+             <tr>
+              
+               <th scope="col">Location</th>
+               <th scope="col">Contact</th>
+               <th scope="col">Service</th>
+               <th scope="col">About Helper</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr *ngFor="let helper of helpers">
              
-                <th scope="col">Location</th>
-                <th scope="col">Contact</th>
-                <th scope="col">About Helper</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let helper of helpers">
-               
-                <td>{{helper.location}}</td>
-                <td>{{helper.contact}}</td>
-                <td>{{helper.description}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+               <td>{{helper.location}}</td>
+               <td>{{helper.contact}}</td>
+               <td>{{helper.helperService}}</td>
+               <td>{{helper.description}}</td>
+             </tr>
+            
+           </tbody>
+         </table>
+       </div>
+       </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
   </div>
+ 
+
+  
   <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -228,65 +262,90 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <table class="table table-striped table-dark">
-            <thead>
-              <tr>
-               
-                <th scope="col">Location</th>
-                <th scope="col">Contact</th>
-                <th scope="col">About Helper</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let helper of helpers">
-               
-                <td>{{helper.location}}</td>
-                <td>{{helper.contact}}</td>
-                <td>{{helper.description}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+          <div *ngIf="!msg3" class="alert alert-primary alert-dismissible" role="alert" id="liveAlert">
+            {{message}}
+           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+         </div>
+         <div *ngIf="msg3" class="alert alert-primary alert-dismissible" role="alert" id="liveAlert">
+         <table class="table table-striped table-dark">
+          <thead>
+            <tr>
+             
+              <th scope="col">Location</th>
+              <th scope="col">Contact</th>
+              <th scope="col">Service</th>
+              <th scope="col">About Helper</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let helper of helpers">
+            
+              <td>{{helper.location}}</td>
+              <td>{{helper.contact}}</td>
+              <td>{{helper.helperService}}</td>
+              <td>{{helper.description}}</td>
+            </tr>
+           
+          </tbody>
+         </table>
+       </div>
+       </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
   </div>
+ 
+  <!-- Tutor Modal -->
+ 
   <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel" style="margin-left:300px;font-size: large;font-weight: bolder;">Tutor</h5>
+          <h5 class="modal-title" id="exampleModalLabel" style="margin-left:300px;font-size: large;font-weight: bolder;" >Tutor</h5>
          
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <table class="table table-striped table-dark">
-            <thead>
-              <tr>
-               
-                <th scope="col">Location</th>
-                <th scope="col">Contact</th>
-                <th scope="col">About Helper</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let helper of helpers">
-               
-                <td>{{helper.location}}</td>
-                <td>{{helper.contact}}</td>
-                <td>{{helper.description}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+          <div *ngIf="!msg4" class="alert alert-primary alert-dismissible" role="alert" id="liveAlert">
+            {{message}}
+           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+         </div>
+         <div *ngIf="msg4" class="alert alert-primary alert-dismissible" role="alert" id="liveAlert">
+         <table class="table table-striped table-dark">
+          <thead>
+            <tr>
+             
+              <th scope="col">Location</th>
+              <th scope="col">Contact</th>
+              <th scope="col">Service</th>
+              <th scope="col">About Helper</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let helper of helpers">
+            
+              <td>{{helper.location}}</td>
+              <td>{{helper.contact}}</td>
+              <td>{{helper.helperService}}</td>
+              <td>{{helper.description}}</td>
+            </tr>
+           
+          </tbody>
+         </table>
+       </div>
+       </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
+ 
+ 
   </div>
+
+
   <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -296,64 +355,44 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <table class="table table-striped table-dark">
-            <thead>
-              <tr>
-               
-                <th scope="col">Location</th>
-                <th scope="col">Contact</th>
-                <th scope="col">About Helper</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let helper of helpers">
-                
-                <td>{{helper.location}}</td>
-                <td>{{helper.contact}}</td>
-                <td>{{helper.description}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+          <div *ngIf="!msg6" class="alert alert-primary alert-dismissible" role="alert" id="liveAlert">
+            {{message}}
+           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+         </div>
+         <div *ngIf="msg6" class="alert alert-primary alert-dismissible" role="alert" id="liveAlert">
+         <table class="table table-striped table-dark">
+          <thead>
+            <tr>
+             
+              <th scope="col">Location</th>
+              <th scope="col">Contact</th>
+              <th scope="col">Email</th>
+              <th scope="col">About Helper</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let helper of helpers">
+            
+              <td>{{helper.location}}</td>
+              <td>{{helper.contact}}</td>
+              <td>{{helper.helperService}}</td>
+              <td>{{helper.description}}</td>
+            </tr>
+           
+          </tbody>
+         </table>
+       </div>
+       </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
   </div>
-  <div class="modal fade" id="exampleModalextended" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel" style="margin-left:300px;font-size: large;font-weight: bolder;">Other</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <table class="table table-striped table-dark">
-            <thead>
-              <tr>
-               
-                <th scope="col">Location</th>
-                <th scope="col">Contact</th>
-                <th scope="col">About Helper</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let helper of helpers">
-                
-                <td>{{helper.location}}</td>
-                <td>{{helper.contact}}</td>
-                <td>{{helper.description}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
+
+
+  
+
   </main>
 
   

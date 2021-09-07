@@ -39,32 +39,35 @@
           <h3>Send us your Feedback</h3>
        </div>
         <div class="col-12 col-md-9">
-            <form>
+            <form [formGroup]='feedback' (ngSubmit)="onSubmit()"> 
                 <div class="form-group row">
                     <label for="firstname" class="col-md-2 col-form-label">First Name</label>
                     <div class="col-md-10">
-                        <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name">
+                        <input type="text" class="form-control"  formControlName="firstname" name="firstname" placeholder="First Name">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="lastname" class="col-md-2 col-form-label">Last Name</label>
                     <div class="col-md-10">
-                        <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name">
+                        <input type="text" class="form-control"  formControlName="lastname" name="lastname" placeholder="Last Name">
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label for="telnum" class="col-12 col-md-2 col-form-label">Contact Tel.</label>
-                    <div class="col-5 col-md-3">
-                        <input type="tel" class="form-control" id="areacode" name="areacode" placeholder="Area code">
+                <div class="form-group input-group" style="margin-bottom: 20px;">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
                     </div>
-                    <div class="col-7 col-md-7">
-                        <input type="tel" class="form-control" id="telnum" name="telnum" placeholder="Tel. number">
-                    </div>
-                </div>
+                    <select class="custom-select" style="max-width: 120px;" id="countrycode"  formControlName="countrycode">
+                        <option selected="+91">+91</option>
+                        <option value="+92">+92</option>
+                        <option value="+93">+93</option>
+                        <option value="+94">+94</option>
+                    </select>
+                    <input name="contact" class="form-control" placeholder="Phone number" type="text"  formControlName="contact">
+                </div> <!-- form-group// -->
                 <div class="form-group row">
-                    <label for="emailid" class="col-md-2 col-form-label">Email</label>
+                    <label  class="col-md-2 col-form-label">Email</label>
                     <div class="col-md-10">
-                        <input type="email" class="form-control" id="emailid" name="emailid" placeholder="Email">
+                        <input type="email" class="form-control"  formControlName="email"  placeholder="Email">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -76,8 +79,10 @@
                             </label>
                         </div>
                     </div>
-                    <div class="col-md-3 offset-md-1">
-                        <select class="form-control">
+                    <div class="form-group input-group" style="margin-bottom: 20px;">
+                        <div class="input-group-prepend">
+                        </div>
+                        <select class="custom-select" style="max-width: 120px;margin-left: 150px;"    formControlName="contactyou">
                             <option>Tel.</option>
                             <option>Email</option>
                         </select>
@@ -86,7 +91,7 @@
                 <div class="form-group row">
                     <label for="feedback" class="col-md-2 col-form-label">Your Feedback</label>
                     <div class="col-md-10">
-                        <textarea class="form-control" id="feedback" name="feedback" rows="12"></textarea>
+                        <textarea class="form-control"  formControlName="feedback" name="feedback" rows="12"></textarea>
                     </div>
                 </div>
                 <div class="form-group row">

@@ -3,6 +3,7 @@ import { HttpClient, HttpContextToken } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Customer } from 'src/model/customer';
 import { Helper } from 'src/model/helper';
+import { Queryfeed } from 'src/model/query';
 
 @Injectable({
   providedIn: 'root'
@@ -27,10 +28,17 @@ export class HelperService {
      }
      logout(){
       localStorage.removeItem('email')
+      localStorage.removeItem('local')
+
       return true;
     }
     getEmail(email:string){
       localStorage.setItem("email",email)
+    }
+    createQuery(c:Queryfeed):Observable<Customer>{
+       
+      
+      return this.http.post<Customer>("http://localhost:9000/feed/add ",c);
     }
     createCustomer(c:Customer):Observable<Customer>{
       console.log("welcome"+c.userName+" "+c.email+c.countryCode+c.mobile+c.jobType+c.userPassword);  
@@ -71,23 +79,27 @@ export class HelperService {
     return this.http.get<Customer[]>("http://localhost:9000/user/"+email);
   }
   getMechanicByLocation(location:any):Observable<Helper[]>{
-    return this.http.get<Helper[]>("http://localhost:9000/mechanic/"+location);
+    return this.http.get<Helper[]>("http://localhost:9000/mechanicl/"+location);
    }
    getPlumberByLocation(location:any):Observable<Helper[]>{
-    return this.http.get<Helper[]>("http://localhost:9000/plumber/"+location);
+    return this.http.get<Helper[]>("http://localhost:9000/plumberl/"+location);
    }
    getCarpentarByLocation(location:any):Observable<Helper[]>{
-    return this.http.get<Helper[]>("http://localhost:9000/carpentar/"+location);
+    return this.http.get<Helper[]>("http://localhost:9000/carpenterl/"+location);
    }
    getTutorByLocation(location:any):Observable<Helper[]>{
-    return this.http.get<Helper[]>("http://localhost:9000/tutor/"+location);
+    return this.http.get<Helper[]>("http://localhost:9000/tutorl/"+location);
    }
    getELectricianByLocation(location:any):Observable<Helper[]>{
-    return this.http.get<Helper[]>("http://localhost:9000/electrician/"+location);
+    return this.http.get<Helper[]>("http://localhost:9000/electricianl/"+location);
    }
    getOtherByLocation(location:any):Observable<Helper[]>{
-    return this.http.get<Helper[]>("http://localhost:9000/other/"+location);
+    return this.http.get<Helper[]>("http://localhost:9000/otherl/"+location);
    }
+   getHelperData(email:any):Observable<Helper[]>{
+    return this.http.get<Helper[]>("http://localhost:9000/helperid/"+email);
+  }
 
+   
   
 }
